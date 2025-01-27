@@ -99,23 +99,6 @@ CONSTRAINT UNIQUE(column_name1, column_name2)
 -- general syntax to name constraints
 CONSTRAINT name_of_constraint
 ```
-
-```
--- creating table mentorships
-CREATE TABLE mentorships (
-    mentor_id INT NOT NULL,
-    mentee_id INT NOT NULL,
-    status VARCHAR(255) NOT NULL,
-    project VARCHAR(255) NOT NULL,
-    
-    PRIMARY KEY (mentor_id, mentee_id, project),
-    CONSTRAINT fk1 FOREIGN KEY(mentor_id) REFERENCES co_employees(id)
-      ON DELETE CASCADE ON UPDATE RESTRICT, -- constraint named fk1
-    CONSTRAINT fk2 FOREIGN KEY(mentee_id) REFERENCES co_employees(id)
-      ON DELETE CASCADE ON UPDATE RESTRICT, -- ON DELETE, ON UPDATE
-    CONSTRAINT mm_constraint UNIQUE(mentor_id, mentee_id)
-); 
-```
 ### ON DELETE Clauses (for deletion of parent table row):
 - ON DELETE CASCADE indicates if a certain employee is deleted from the co_employees table (parent table), any record of that employee in the mentorships table will also be deleted
 - ON DELETE RESTRICT  - the row in the parent table cannot be deleted if a row in the child table references that parent row
@@ -123,3 +106,30 @@ CREATE TABLE mentorships (
 - ON DELETE SET DEFAULT - the child row FK value will be set to the default value if the parent row is deleted
 
 ***ON UPDATE Clauses follow similar clause definitions, applied to when updating the parent table***
+
+## Altering Tables and Table Values
+- renaming tables uses rename feature
+```
+-- rename from old to new name
+RENAME TABLE old_name TO new_name;
+```
+- using alter to update columns and table constraints
+```
+-- general syntax
+ALTER TABLE table_name ...
+-- changing auto increment starting value
+    AUTO_INCREMENT = starting_value
+-- adding a new table constraint
+    ADD CONSTRAINT [name_of_constraint] details_of_constraint
+-- dropping a table constraint (excl. fk constraints)
+    DROP INDEX name_of_constraint
+-- dropping a foreign key constraint
+    DROP FOREIGN KEY name_of_fk
+-- modifying a column
+    MODIFY COLUMN column_name data_type [constraints]
+-- dropping a column
+    DROP COLUMN column_name
+-- adding a column
+    ADD COLUMN column_name data_type [constraints]
+```
+- NOTE: you may use FIRST after column constraints or AFTER [column_name] to specify where you'd like to place newly added columns
