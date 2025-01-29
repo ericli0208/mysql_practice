@@ -133,3 +133,29 @@ ALTER TABLE table_name ...
     ADD COLUMN column_name data_type [constraints]
 ```
 - NOTE: you may use FIRST after column constraints or AFTER [column_name] to specify where you'd like to place newly added columns
+
+## Inserting, Updating, and Deleting Data
+
+- inserting data into tables follows this syntax:
+```
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...)
+```
+
+- updating table data uses a WHERE clause
+```
+UPDATE table_name
+SET column1 = value1, column2 = value2,
+WHERE condition;
+```
+- typically the condition would be the unique identifier or PK (e.g., WHERE id = 1)
+- but you can also use it as a filter to change data values for ALL rows that meet a certain condition
+- not using the WHERE clause will change all values in the entire table
+
+- deleting table data follows this syntax:
+```
+-- deleting a full row
+DELETE FROM table_name
+WHERE condition;
+```
+
