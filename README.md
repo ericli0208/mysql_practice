@@ -159,3 +159,18 @@ DELETE FROM table_name
 WHERE condition;
 ```
 
+## Selects
+- basic select syntax:
+```
+SELECT column_names_or_other_information [AS alias]
+FROM table_name
+WHERE [condition]
+```
+
+- selecting everything:
+```
+SELECT *
+FROM table_name
+```
+
+- 
