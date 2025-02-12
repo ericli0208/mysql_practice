@@ -28,3 +28,16 @@ WHERE id IN (
   FROM mentorships
   WHERE project = 'SQF Limited');
   
+-- COUNT() functions
+SELECT COUNT(*) 
+FROM employees;
+
+SELECT COUNT(contact_number) 
+FROM employees;
+
+SELECT COUNT(gender) 
+FROM employees;
+
+SELECT COUNT(DISTINCT gender) 
+FROM employees;
+
