@@ -173,4 +173,34 @@ SELECT *
 FROM table_name
 ```
 
-- 
+## Functions - MySQL
+- functions are blocks of code that do certain jobs for us
+
+### CONCAT() Function
+- combines two or more strings into a single string (concatenating strings)
+```
+SELECT CONCAT('Hello', 'World')
+```
+
+### SUBSTRING() Function
+- extracts a substring from a specified string
+- refers to a portion of a longer string
+- requires passing a string, the starting position, and desired length
+```
+SELECT SUBSTRING('Programming', 2)
+SELECT SUBSTRING('Programming', 2, 6)
+```
+- yields 'rogramming' and 'rogram'
+
+### NOW(), CURDATE(), CURTIME() Functions
+- NOW() - gives the current date and time whenever the function is used
+- CURDATE() - gives the current date whenever the function is used
+- CURTIME() - gives current time
+
+## Functions - Aggregate
+
+### COUNT() Function
+- returns the number of rows in the table
+- passing in '*' returns the total number of rows in a table
+- passing in column name returns the number of non NULL values in that column (NULL values are ignored)
+- passing in DISTINCT removes duplicates
